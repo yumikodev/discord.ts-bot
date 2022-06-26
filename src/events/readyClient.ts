@@ -1,6 +1,6 @@
 import { Activity, Client, Message } from "discord.js";
 import config from "../config/config";
-import { Status } from "../types/activity";
+import { StatusType  } from "../types/status";
 
 module.exports = {
   name: "ready",
@@ -9,7 +9,7 @@ module.exports = {
     console.log(`${client.user?.username} is Online!`);
 
     async function $presence() {
-      const status: Status = [
+      const status: StatusType = [
         {
           type: "PLAYING",
           content: `${config.prefix}help - v${config.version}`,
