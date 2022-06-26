@@ -20,9 +20,9 @@
   },
   "homepage": "https://github.com/Yumiko0828/discord.ts-bot#readme",
   "dependencies": {
-    "@discordjs/builders": "^0.15.0",
-    "@discordjs/rest": "^0.5.0",
-    "discord-api-types": "^0.35.0",
+    "@discordjs/builders": "0.15.0",
+    "@discordjs/rest": "0.5.0",
+    "discord-api-types": "0.35.0",
     "discord.js": "13.8.1"
   },
   "devDependencies": {
