@@ -1,0 +1,19 @@
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { Client, CommandInteraction } from "discord.js";
+
+module.exports = {
+  data: new SlashCommandBuilder()
+    .setName(" ")
+    .setDescription(" "),
+  async run(client: Client, int: CommandInteraction) {
+    try {
+
+
+
+    } catch (err) {
+      console.log(err);
+      // @ts-ignore
+      await int.reply({ content: err.message });
+    }
+  },
+};
