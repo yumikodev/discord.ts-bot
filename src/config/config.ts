@@ -4,7 +4,7 @@ config();
 
 export default {
   token: process.env.TOKEN, // Your token here
-  clientId: "989730866999730176", // Your Client Id here
+  clientId: "", // Your Client Id here
   guildId: "", // Your Guild Id here
   prefix: "$", // Your prefix here
   version, // The version of the bot here

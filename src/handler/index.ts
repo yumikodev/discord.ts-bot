@@ -3,7 +3,7 @@ import { commands, slashs } from "../index";
 import { join } from "node:path";
 import fs from "node:fs";
 import { Cmd } from "../types/cmd";
-import { Int } from "../types/slash";
+import { SlashCmd } from "../types/slash";
 
 export default async (client: Client) => {
   // Command Handler
@@ -29,7 +29,7 @@ export default async (client: Client) => {
     );
 
     for (const file of folder) {
-      const command: Int = require(`../commands/slash/${folders}/${file}`);
+      const command: SlashCmd = require(`../commands/slash/${folders}/${file}`);
       slashs.set(command.data.name, command);
     }
   }
