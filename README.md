@@ -13,7 +13,7 @@ Este es un bot para Discord, Escrito en TypeScript y desarrollado con [Node.js](
 - `npm install` para instalar los paquetes/dependecias.
 - `npm run slash` para construir y actualizar los Slash Commands.
 - `npm start` para iniciar el bot
-- Si quiere que los Slash Commands sean globales, valla a `./build.js` y cambien `Routes.applicationGuildCommands` por `Routes.applicationCommands` [(leer mas)](https://discordjs.guide/interactions/slash-commands.html#global-commands)
+- Si quiere que los Slash Commands sean globales, valla a `./build.ts` y cambien `Routes.applicationGuildCommands` por `Routes.applicationCommands` [(leer mas)](https://discordjs.guide/interactions/slash-commands.html#global-commands)
 - Puede cambiar la Presencia de su bot en `./src/events/ready.ts`
 
 ## Caracteristicas
