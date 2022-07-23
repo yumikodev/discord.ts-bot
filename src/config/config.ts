@@ -1,11 +1,14 @@
 import { version } from "../../package.json";
 import { config } from "dotenv";
+import setMode from "./setMode";
 config();
 
+const { CLIENT_ID, GUILD_ID, TOKEN } = setMode("development"); // Si estas en modo desarrollo, cambialo
+
 export default {
-  token: process.env.TOKEN, // Your token here
-  clientId: "", // Your Client Id here
-  guildId: "", // Your Guild Id here
-  prefix: "$", // Your prefix here
-  version, // The version of the bot here
+  token: TOKEN,
+  clientId: CLIENT_ID,
+  guildId: GUILD_ID,
+  prefix: "!",
+  version,
 };

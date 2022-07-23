@@ -1,11 +1,11 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { Client, CommandInteraction } from "discord.js";
+import { SlashCommandBuilder } from "discord.js";
+import AppCommand from "../../components/AppCommand";
 
-module.exports = {
+module.exports = new AppCommand({
   data: new SlashCommandBuilder()
     .setName("ping")
     .setDescription("Send a ping request."),
-  async run(client: Client, int: CommandInteraction) {
+  async run(client, int) {
     try {
       await int.reply({ content: "Pong!" });
       await int.followUp({
@@ -19,4 +19,4 @@ module.exports = {
       await int.reply({ content: err.message });
     }
   },
-};
+});
