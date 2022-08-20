@@ -4,7 +4,7 @@ module.exports = new CommandBuilder({
   data: {
     name: "say",
     alias: ["echo"],
-    description: "",
+    description: "Envia un mensaje a travéz de mi.",
   },
   async run(client, message, args) {
     try {
@@ -12,7 +12,7 @@ module.exports = new CommandBuilder({
       await message.delete();
 
       if (!txt)
-        return await message.reply({
+        return await message.channel.send({
           content: "Tienes que poner el contenido.",
         });
 
@@ -20,7 +20,7 @@ module.exports = new CommandBuilder({
     } catch (err) {
       console.log(err);
       // @ts-ignore
-      await message.reply({ content: err.message });
+      await message.channel.send({ content: err.message });
     }
   },
 });

@@ -13,19 +13,22 @@ module.exports = new ClientEvent("messageCreate", async (client, message) => {
 
     if (!message.content.startsWith(prefix)) return;
 
-    const args: string[] = message.content
-      .slice(prefix.length)
-      .trim()
-      .split(/ +/g);
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift()?.toLowerCase();
 
-    // @ts-ignore
-    const cmd: Command = commands.find((c) => c.data.name === command || (c.data.alias && c.data.alias.includes(command)));
+    const cmd: Command | undefined = commands.find(
+      // @ts-ignore
+      (c: Command) =>
+        c.data.name === command ||
+        (c.data.alias && c.data.alias.includes(`${command}`))
+    );
 
-    if (!cmd)
+    if (!cmd) {
+      await message.channel.sendTyping();
       return await message.reply({
         content: `Command \`${command}\` does not exist`,
       });
+    }
 
     await message.channel.sendTyping();
     await cmd.run(client, message, args);

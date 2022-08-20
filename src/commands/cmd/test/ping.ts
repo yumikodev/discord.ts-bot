@@ -3,7 +3,7 @@ import { CommandBuilder } from "../../../components/CommandBuilder";
 module.exports = new CommandBuilder({
   data: {
     name: "ping",
-    alias: ["p"],
+    alias: [],
     description: "Send a ping request.",
   },
   async run(client, message, args) {
@@ -17,7 +17,7 @@ module.exports = new CommandBuilder({
     } catch (err) {
       console.log(err);
       // @ts-ignore
-      await message.reply({ content: err.message });
+      await message.channel.send({ content: err.message });
     }
   },
 });
