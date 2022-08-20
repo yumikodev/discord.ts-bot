@@ -1,9 +1,9 @@
 import { Client, ClientEvents } from "discord.js";
 
-class ClientEvent<E extends keyof ClientEvents> {
+export default class<K extends keyof ClientEvents> {
   constructor(
-    event: E,
-    listener: (client: Client, ...args: ClientEvents[E]) => any
+    event: K,
+    listener: (client: Client, ...args: ClientEvents[K]) => any
   ) {
     this.event = event;
     this.listener = listener;
@@ -11,5 +11,3 @@ class ClientEvent<E extends keyof ClientEvents> {
   event;
   listener;
 }
-
-export default ClientEvent;

@@ -3,5 +3,5 @@ import { Client, CommandInteraction } from "discord.js";
 
 declare type SlashCmd = {
   data: SlashCommandBuilder;
-  run(client: Client, interaction: CommandInteraction);
+  run(client: Client, interaction: CommandInteraction): Promise<void>;
 };

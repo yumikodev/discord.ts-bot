@@ -1,7 +1,7 @@
 import { ActivityType, Client } from "discord.js";
 import { StatusType } from "../types/StatusType";
 
-class ClientActivityPresence {
+class setPresence {
   constructor(client: Client, statusOptions: StatusType) {
     setInterval(() => {
       const options = Math.floor(Math.random() * statusOptions.length);
@@ -34,4 +34,4 @@ class ClientActivityPresence {
   }
 }
 
-export default ClientActivityPresence;
+export default setPresence;

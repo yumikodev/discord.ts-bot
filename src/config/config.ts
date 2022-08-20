@@ -1,4 +1,3 @@
-import { version } from "../../package.json";
 import { config } from "dotenv";
 import setMode from "./setMode";
 config();
@@ -10,5 +9,5 @@ export default {
   clientId: CLIENT_ID,
   guildId: GUILD_ID,
   prefix: "!",
-  version,
+  version: "1.0.0",
 };

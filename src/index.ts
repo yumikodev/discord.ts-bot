@@ -1,9 +1,14 @@
 import { Client, Collection, GatewayIntentBits } from "discord.js";
 const client = new Client({
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.MessageContent,
+  ],
 });
 import config from "./config/config";
-import handler from "./handler/index";
+import handler from "./handler/main";
 
 // Collections
 const commands = new Collection();

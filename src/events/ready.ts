@@ -1,13 +1,13 @@
+import setPresence from "../components/setPresence";
 import ClientEvent from "../components/ClientEvent";
-import config from "../config/config";
 import { ActivityType } from "discord.js";
-import ClientActivityPresence from "../components/ClientPresence";
+import config from "../config/config";
 
 module.exports = new ClientEvent("ready", async (client) => {
   console.clear();
   console.log(`${client.user?.username} en linea!`);
 
-  new ClientActivityPresence(client, [
+  new setPresence(client, [
     {
       content: `${config.prefix}help - v${config.version}`,
       type: ActivityType.Playing,

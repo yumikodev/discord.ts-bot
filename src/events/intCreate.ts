@@ -20,6 +20,7 @@ module.exports = new ClientEvent("interactionCreate", async (client, int) => {
   } catch (err) {
     console.error(err);
 
+    await int.channel?.sendTyping();
     await int.reply({
       content: "There was an error while executing this command!",
       ephemeral: true,
