@@ -3,7 +3,7 @@ import ClientEvent from "../components/ClientEvent";
 import { ActivityType } from "discord.js";
 import config from "../config/config";
 
-module.exports = new ClientEvent("ready", async (client) => {
+export default new ClientEvent("ready", async (client) => {
   console.clear();
   console.log(`${client.user?.username} en linea!`);
 

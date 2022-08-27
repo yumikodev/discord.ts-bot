@@ -2,7 +2,7 @@ import ClientEvent from "../components/ClientEvent";
 import { slashs } from "../index";
 import { SlashCmd } from "../types/SlashStructure";
 
-module.exports = new ClientEvent("interactionCreate", async (client, int) => {
+export default new ClientEvent("interactionCreate", async (client, int) => {
   if (!int.isChatInputCommand()) return;
 
   // @ts-ignore

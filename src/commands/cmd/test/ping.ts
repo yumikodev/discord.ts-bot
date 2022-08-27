@@ -1,6 +1,6 @@
 import { CommandBuilder } from "../../../components/CommandBuilder";
 
-module.exports = new CommandBuilder({
+export default new CommandBuilder({
   data: {
     name: "ping",
     alias: [],

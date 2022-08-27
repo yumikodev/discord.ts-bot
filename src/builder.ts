@@ -16,8 +16,8 @@ import config from "./config/config";
       );
 
       for (const file of folder) {
-        const command = require(`./commands/slash/${folders}/${file}`);
-        commands.push(command.data.toJSON());
+        const command = await import(`./commands/slash/${folders}/${file}`);
+        commands.push(command.default.data.toJSON());
       }
     }
 

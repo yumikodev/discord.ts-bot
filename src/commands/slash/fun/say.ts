@@ -1,7 +1,7 @@
 import { SlashCommandBuilder } from "discord.js";
 import { SlashBuilder } from "../../../components/CommandBuilder";
 
-module.exports = new SlashBuilder({
+export default new SlashBuilder({
   data: new SlashCommandBuilder()
     .setName("say")
     .setDescription("Envia un mensaje a travéz de mi.")

@@ -4,7 +4,7 @@ import ClientEvent from "../components/ClientEvent";
 import config from "../config/config";
 import { Command } from "../types/Collections";
 
-module.exports = new ClientEvent("messageCreate", async (client, message) => {
+export default new ClientEvent("messageCreate", async (client, message) => {
   try {
     if (message.channel.type === ChannelType.DM) return;
     if (message.author.bot) return;

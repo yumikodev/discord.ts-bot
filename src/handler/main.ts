@@ -16,8 +16,8 @@ export default async (client: Client) => {
       );
 
       for (const file of folder) {
-        const command: Command = require(`../commands/cmd/${folders}/${file}`);
-        commands.set(command.data.name, command);
+        const command = await import(`../commands/cmd/${folders}/${file}`);
+        commands.set(command.default.data.name, command.default);
       }
     }
 
@@ -30,8 +30,8 @@ export default async (client: Client) => {
       );
 
       for (const file of folder) {
-        const command: SlashCommand = require(`../commands/slash/${folders}/${file}`);
-        slashs.set(command.data.name, command);
+        const command = await import(`../commands/slash/${folders}/${file}`);
+        slashs.set(command.default.data.name, command.default);
       }
     }
 
@@ -39,8 +39,10 @@ export default async (client: Client) => {
     const eventFiles = await readdir(join(__dirname, "../events"));
 
     for (const file of eventFiles) {
-      const e = require(`../events/${file}`);
-      client.on(e.event, (...args) => e.listener(client, ...args));
+      const e = await import(`../events/${file}`);
+      client.on(e.default.event, (...args) =>
+        e.default.listener(client, ...args)
+      );
     }
   } catch (err) {
     console.error(err);
