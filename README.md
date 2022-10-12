@@ -1,6 +1,6 @@
 # discord.ts-bot
 
-Creado por [Yasu Yumiko#5285](https://yumiko0828.ml)
+Creado por [Yasu Yumiko#5285](https://yasuyumiko.ml)
 
 ## Sobre
 
