@@ -13,6 +13,7 @@ Este es un bot para Discord, escrito en TypeScript y desarrollado con [Node.js](
 - Revisar las variables de entorno (`.env.example`)
 - Ir a `./src/config/env.ts` y configurarlo para evitar errores.
 - [Discord.js](https://npmjs.com/package/discord.js) requiere [Node.js](https://nodejs.org) v16.9 o superior para funcionar.
+- Puede cambiar la Presencia de su bot en `./src/events/ready.ts`
 
 ### Instalación, Compilación & Inicio:
 
@@ -42,7 +43,6 @@ npm start
 ```
 
 - Si quiere que los Slash Commands sean globales, valla a `./src/builder.ts` y cambie `Routes.applicationGuildCommands` por `Routes.applicationCommands` [(leer mas)](https://discordjs.guide/interactions/slash-commands.html#global-commands)
-- Puede cambiar la Presencia de su bot en `./src/events/ready.ts`
 
 ## Características
 
