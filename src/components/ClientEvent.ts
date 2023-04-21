@@ -1,9 +1,10 @@
-import { Client, ClientEvents } from "discord.js";
+import { ClientEvents } from "discord.js";
+import { Bot } from "../types/Bot.js";
 
 export default class<K extends keyof ClientEvents> {
   constructor(
     event: K,
-    listener: (client: Client, ...args: ClientEvents[K]) => any
+    listener: (client: Bot, ...args: ClientEvents[K]) => unknown
   ) {
     this.event = event;
     this.listener = listener;

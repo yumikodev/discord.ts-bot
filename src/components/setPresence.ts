@@ -1,8 +1,9 @@
-import { ActivityType, Client } from "discord.js";
-import { StatusType } from "../types/StatusType";
+import { ActivityType } from "discord.js";
+import { StatusType } from "../types/StatusType.js";
+import { Bot } from "../types/Bot.js";
 
 class setPresence {
-  constructor(client: Client, statusOptions: StatusType) {
+  constructor(client: Bot, statusOptions: StatusType) {
     setInterval(() => {
       const options = Math.floor(Math.random() * statusOptions.length);
       let presence;

@@ -1,4 +1,9 @@
 import { Client, Collection, GatewayIntentBits } from "discord.js";
+import config from "./config/config.js";
+import handler from "./handler/main.js";
+import { Bot } from "./types/Bot.js";
+
+// Client
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -6,18 +11,14 @@ const client = new Client({
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.MessageContent,
   ],
-});
-import config from "./config/config";
-import handler from "./handler/main";
+}) as Bot;
 
 // Collections
-const commands = new Collection();
-const slashs = new Collection();
+client.slashs = new Collection();
+client.commands = new Collection();
 
 // Handler
 handler(client);
 
 // Client Login
 client.login(config.token);
-
-export { commands, slashs };

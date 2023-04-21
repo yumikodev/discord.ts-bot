@@ -1,10 +1,31 @@
-import { Command, SlashCommand } from "../types/Collections";
 import { readdir } from "node:fs/promises";
-import { commands, slashs } from "..";
-import { Client } from "discord.js";
-import { join } from "node:path";
+import { join, dirname } from "node:path";
+import { Bot } from "../types/Bot.js";
+import { REST, Routes } from "discord.js";
+import config from "../config/config.js";
+import { fileURLToPath } from "node:url"
 
-export default async (client: Client) => {
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+async function builder(commands: unknown[]) {
+  const rest = new REST({ version: "10" }).setToken(config.token);
+
+  console.log("Started refreshing application (/) commands.");
+
+  await rest.put(
+    Routes.applicationGuildCommands(config.clientId, config.guildId), // Slash Commands en un servidor
+    // Routes.applicationCommands(config.clientId), // Slash Commands Globales
+    {
+      body: commands,
+    }
+  );
+
+  console.log("Successfully reloaded application (/) commands.");
+}
+
+export default async (client: Bot) => {
+  const commands = [];
+
   try {
     /*-------- Nota: use Slash Commands --------*/
     // Command Handler
@@ -17,7 +38,7 @@ export default async (client: Client) => {
 
       for (const file of folder) {
         const command = await import(`../commands/cmd/${folders}/${file}`);
-        commands.set(command.default.data.name, command.default);
+        client.commands.set(command.default.data.name, command.default);
       }
     }
 
@@ -31,9 +52,13 @@ export default async (client: Client) => {
 
       for (const file of folder) {
         const command = await import(`../commands/slash/${folders}/${file}`);
-        slashs.set(command.default.data.name, command.default);
+        client.slashs.set(command.default.data.name, command.default);
+        commands.push(command.default.data.toJSON());
       }
     }
+
+    // Slash Command
+    await builder(commands);
 
     // Event handler
     const eventFiles = await readdir(join(__dirname, "../events"));

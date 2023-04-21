@@ -1,22 +1,22 @@
 import {
-  Client,
   CommandInteraction,
   Message,
   SlashCommandBuilder,
 } from "discord.js";
+import { Bot } from "./Bot.js";
 
-declare type Command = {
+declare interface Command {
   data: {
     name: string;
     description: string;
     alias: string[];
   };
-  run: (client: Client, message: Message, args: string[]) => Promise<void>;
-};
+  run: (client: Bot, message: Message, args: string[]) => unknown;
+}
 
-declare type SlashCommand = {
+declare interface SlashCommand {
   data: SlashCommandBuilder;
-  run: (client: Client, interaction: CommandInteraction) => Promise<void>;
-};
+  run: (client: Bot, interaction: CommandInteraction) => unknown;
+}
 
 export { Command, SlashCommand };

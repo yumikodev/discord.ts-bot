@@ -1,11 +1,13 @@
 import { SlashCommandBuilder } from "discord.js";
-import { SlashBuilder } from "../../../components/CommandBuilder";
+import Slash from "../../../components/SlashCommand.js";
 
-export default new SlashBuilder({
-  data: new SlashCommandBuilder()
-    .setName("ping")
-    .setDescription("Send a ping request."),
-  async run(client, int) {
+export default new Slash()
+  .setData(
+    new SlashCommandBuilder()
+      .setName("ping")
+      .setDescription("Send a ping request.")
+  )
+  .Run(async (client, int) => {
     try {
       await int.reply({ content: "Pong!" });
       await int.followUp({
@@ -15,8 +17,6 @@ export default new SlashBuilder({
       });
     } catch (err) {
       console.log(err);
-      // @ts-ignore
       await int.reply({ content: err.message });
     }
-  },
-});
+  });

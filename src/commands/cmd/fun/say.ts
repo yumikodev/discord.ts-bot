@@ -1,14 +1,14 @@
-import { CommandBuilder } from "../../../components/CommandBuilder";
+import Command from "../../../components/Command.js";
 
-export default new CommandBuilder({
-  data: {
+export default new Command()
+  .setData({
     name: "say",
     alias: ["echo"],
     description: "Envia un mensaje a travéz de mi.",
-  },
-  async run(client, message, args) {
+  })
+  .Run(async (client, message, args) => {
     try {
-      let txt = args.join(" ");
+      const txt = args.join(" ");
       await message.delete();
 
       if (!txt)
@@ -19,8 +19,6 @@ export default new CommandBuilder({
       await message.channel.send({ content: txt });
     } catch (err) {
       console.log(err);
-      // @ts-ignore
       await message.channel.send({ content: err.message });
     }
-  },
-});
+  });

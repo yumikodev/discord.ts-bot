@@ -1,14 +1,14 @@
-import { CommandBuilder } from "../../../components/CommandBuilder";
+import Command from "../../../components/Command.js";
 
-export default new CommandBuilder({
-  data: {
+export default new Command()
+  .setData({
     name: "ping",
     alias: [],
-    description: "Send a ping request.",
-  },
-  async run(client, message, args) {
+    description: "Send a ping request",
+  })
+  .Run(async (client, message) => {
     try {
-      let msg = await message.reply({ content: "Pong!" });
+      const msg = await message.reply({ content: "Pong!" });
       await msg.reply({
         content: `Latency: ${client.ws.ping}ms\nBot Latency: ${
           Date.now() - message.createdTimestamp
@@ -16,8 +16,6 @@ export default new CommandBuilder({
       });
     } catch (err) {
       console.log(err);
-      // @ts-ignore
       await message.channel.send({ content: err.message });
     }
-  },
-});
+  });

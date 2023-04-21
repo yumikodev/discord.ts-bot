@@ -1,12 +1,9 @@
-import ClientEvent from "../components/ClientEvent";
-import { slashs } from "../index";
-import { SlashCmd } from "../types/SlashStructure";
+import ClientEvent from "../components/ClientEvent.js";
 
 export default new ClientEvent("interactionCreate", async (client, int) => {
   if (!int.isChatInputCommand()) return;
 
-  // @ts-ignore
-  const command: SlashCmd = slashs.get(int.commandName);
+  const command = client.slashs.get(int.commandName);
   try {
     if (!command) {
       await int.channel?.sendTyping();

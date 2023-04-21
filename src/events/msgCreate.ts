@@ -1,8 +1,6 @@
 import { ChannelType } from "discord.js";
-import { commands } from "..";
-import ClientEvent from "../components/ClientEvent";
-import config from "../config/config";
-import { Command } from "../types/Collections";
+import ClientEvent from "../components/ClientEvent.js";
+import config from "../config/config.js";
 
 export default new ClientEvent("messageCreate", async (client, message) => {
   try {
@@ -16,9 +14,8 @@ export default new ClientEvent("messageCreate", async (client, message) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift()?.toLowerCase();
 
-    const cmd: Command | undefined = commands.find(
-      // @ts-ignore
-      (c: Command) =>
+    const cmd = client.commands.find(
+      (c) =>
         c.data.name === command ||
         (c.data.alias && c.data.alias.includes(`${command}`))
     );
@@ -34,7 +31,6 @@ export default new ClientEvent("messageCreate", async (client, message) => {
     await cmd.run(client, message, args);
   } catch (err) {
     console.log(err);
-    // @ts-ignore
     await message.reply({ content: err.message });
   }
 });
