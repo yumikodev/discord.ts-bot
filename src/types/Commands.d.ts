@@ -5,7 +5,7 @@ import {
 } from "discord.js";
 import { Bot } from "./Bot.js";
 
-export namespace Command {
+export namespace PrefixCommand {
   export interface Options {
     name: string;
     description: string;

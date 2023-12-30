@@ -1,9 +1,10 @@
-import { CLIENT_ID, GUILD_ID, TOKEN } from "./env.js";
+import { config } from "dotenv";
+config();
 
 export default {
-  token: <string>TOKEN,
-  clientId: <string>CLIENT_ID,
-  guildId: <string>GUILD_ID,
-  prefix: "!",
-  version: "1.0.0",
+  token: process.env.BOT_TOKEN || "",
+  clientId: process.env.CLIENT_ID || "",
+  guildId: process.env.GUILD_ID || "",
+  prefix: process.env.BOT_PREFIX || "!",
+  version: process.env.BOT_VERSION || "1.0.0",
 };

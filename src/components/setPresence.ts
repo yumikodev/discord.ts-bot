@@ -1,12 +1,12 @@
-import { ActivityType } from "discord.js";
+import { ActivityType, PresenceData } from "discord.js";
 import { StatusType } from "../types/StatusType.js";
 import { Bot } from "../types/Bot.js";
 
 class setPresence {
-  constructor(client: Bot, statusOptions: StatusType) {
+  constructor(client: Bot<true>, statusOptions: StatusType) {
     setInterval(() => {
       const options = Math.floor(Math.random() * statusOptions.length);
-      let presence;
+      let presence: PresenceData;
 
       if (statusOptions[options].type !== ActivityType.Streaming) {
         presence = {
@@ -30,8 +30,8 @@ class setPresence {
           status: statusOptions[options].status,
         };
       }
-      client.user?.setPresence(presence);
-    }, 8 * 1000);
+      client.user.setPresence(presence);
+    }, 10 * 1000 /* <-- Cada 10 segundos */);
   }
 }
 

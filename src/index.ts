@@ -15,7 +15,7 @@ const client = new Client({
 
 // Collections
 client.slashs = new Collection();
-client.commands = new Collection();
+client.prefix = new Collection();
 
 // Handler
 handler(client);

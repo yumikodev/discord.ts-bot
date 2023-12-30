@@ -1,6 +1,6 @@
 # discord.ts-bot
 
-Creado por [Yasu Yumiko#5285](https://yasuyumiko.ml)
+Creado por [@yasuyumiko](https://yumikodev.vercel.app)
 
 ## Sobre
 
@@ -11,9 +11,10 @@ Este es un bot para Discord, escrito en TypeScript y desarrollado con [Node.js](
 ### Configuración:
 
 - Revisar las variables de entorno (`.env.example`)
-- Ir a `./src/config/env.ts` y configurarlo para evitar errores.
+  - Las propiedades marcadas como `opcionales` tienen un valor por defecto en `./src/config/config.ts`
 - [Discord.js](https://npmjs.com/package/discord.js) requiere [Node.js](https://nodejs.org) v16.9 o superior para funcionar.
 - Puede cambiar la Presencia de su bot en `./src/events/ready.ts`
+- Puede cambiar de comandos de servidor a comandos globales en `./src/handler/main.ts`. ([Ver más](https://discordjs.guide/creating-your-bot/command-deployment.html#guild-commands))
 
 ### Instalación, Compilación & Inicio:
 
@@ -28,6 +29,9 @@ pnpm i
 
 # Using yarn
 yarn i
+
+# Using Bun
+bun install
 ```
 
 Para compilar el código de TypeScript a JavaScript.
@@ -42,7 +46,23 @@ Para iniciar el bot
 npm start
 ```
 
-- Si quiere que los Slash Commands sean globales, valla a `./src/builder.ts` y cambie `Routes.applicationGuildCommands` por `Routes.applicationCommands` [(leer mas)](https://discordjs.guide/interactions/slash-commands.html#global-commands)
+> [!TIP]
+> Si esta usando Bun, ejecute el código de la siguiente manera.
+
+Para producción:
+
+```bash
+bun run src/index.ts
+```
+
+Para desarrollo:
+
+```bash
+bun run --watch src/index.ts
+```
+
+> [!NOTE]
+> Opcionalmente, puede reemplazar los scripts dentro de `package.json`.
 
 ## Características
 
@@ -58,9 +78,9 @@ Este proyecto está bajo la [MIT License ❤️](https://github.com/Yumiko0828/d
 ## Enlaces
 
 - [Github](https://github.com/yumiko0828)
-- [Twitter](https://twitter.com/yumiko0828_)
-- [Instagram](https://www.instagram.com/yumiko0828_)
+- [Twitter](https://twitter.com/yumikodev)
+- [Instagram](https://www.instagram.com/yumiko.dev)
 - [npm](https://npmjs.com/~yumiko0828)
-- [Website](https://yasuyumiko.ml)
+- [Sitio web](https://yumikodev.vercel.app)
 
 ## Gracias por usar esto :D.

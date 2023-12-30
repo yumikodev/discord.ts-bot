@@ -29,16 +29,16 @@ export default async (client: Bot) => {
   try {
     /*-------- Nota: use Slash Commands --------*/
     // Command Handler
-    const commandFiles = await readdir(join(__dirname, "../commands/cmd"));
+    const commandFiles = await readdir(join(__dirname, "../commands/prefix"));
 
     for (const folders of commandFiles) {
       const folder = await readdir(
-        join(__dirname, `../commands/cmd/${folders}`)
+        join(__dirname, `../commands/prefix/${folders}`)
       );
 
       for (const file of folder) {
-        const command = await import(`../commands/cmd/${folders}/${file}`);
-        client.commands.set(command.default.data.name, command.default);
+        const command = await import(`../commands/prefix/${folders}/${file}`);
+        client.prefix.set(command.default.data.name, command.default);
       }
     }
 

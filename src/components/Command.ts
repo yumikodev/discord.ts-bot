@@ -1,15 +1,15 @@
-import { Command } from "../types/Commands.js";
+import { PrefixCommand } from "../types/Commands.js";
 
 export default class {
-  data!: Command.Options;
-  run!: Command.Run;
+  data!: PrefixCommand.Options;
+  run!: PrefixCommand.Run;
 
-  setData(data: Command.Options) {
+  setData(data: PrefixCommand.Options) {
     this.data = data;
     return this;
   }
 
-  Run(handler: Command.Run) {
+  Run(handler: PrefixCommand.Run) {
     this.run = handler;
     return this;
   }
