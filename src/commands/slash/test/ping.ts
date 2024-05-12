@@ -5,7 +5,7 @@ export default new SlashCommandController()
   .setData(
     new SlashCommandBuilder()
       .setName("ping")
-      .setDescription("Send a ping request.")
+      .setDescription("Send a ping request."),
   )
   .Run(async (client, int) => {
     try {

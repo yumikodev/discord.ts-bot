@@ -10,7 +10,7 @@ export async function Handler(client: Client) {
     await browseInFolders(
       join(__dirname, "../../commands"),
       Handlers.prefixCommands(client),
-      Handlers.slashCommands(client)
+      Handlers.slashCommands(client),
     );
 
     // Load Slash Command
@@ -19,7 +19,7 @@ export async function Handler(client: Client) {
     // Events Handler
     await browseInFolders(
       join(__dirname, "../../events"),
-      Handlers.events(client)
+      Handlers.events(client),
     );
   } catch (err) {
     console.error(err);

@@ -17,7 +17,7 @@ export default new EventController("messageCreate", async (message) => {
     const cmd = message.client.prefix.find(
       (c) =>
         c.data.name === command ||
-        (c.data.alias && c.data.alias.includes(`${command}`))
+        (c.data.alias && c.data.alias.includes(`${command}`)),
     );
 
     if (!cmd) {

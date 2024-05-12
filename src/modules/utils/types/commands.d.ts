@@ -24,7 +24,7 @@ export namespace PCT {
   export type Run = (
     client: Client,
     message: Message,
-    args: string[]
+    args: string[],
   ) => unknown;
 }
 
@@ -37,6 +37,6 @@ export namespace SCT {
 
   export type Run = (
     client: Client,
-    interaction: ChatInputCommandInteraction
+    interaction: ChatInputCommandInteraction,
   ) => unknown;
 }

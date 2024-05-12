@@ -10,8 +10,8 @@ export default new SlashCommandController()
         option
           .setName("content")
           .setDescription("El contenido del mensaje.")
-          .setRequired(true)
-      )
+          .setRequired(true),
+      ),
   )
   .Run(async (client, int) => {
     try {

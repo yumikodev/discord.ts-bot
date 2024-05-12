@@ -11,7 +11,7 @@ export async function builder(commands: unknown[]) {
     // Routes.applicationCommands(config.clientId), // Slash Commands Globales
     {
       body: commands,
-    }
+    },
   );
 
   console.log("Successfully reloaded application (/) commands.");

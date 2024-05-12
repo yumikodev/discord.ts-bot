@@ -12,10 +12,7 @@ export async function browseInFolders(path: string, ...handlers: Callback[]) {
   for (const archive of mainDir) {
     // If is a folder...
     if (archive.isDirectory()) {
-      await browseInFolders(
-        join(path, archive.name),
-        ...handlers
-      );
+      await browseInFolders(join(path, archive.name), ...handlers);
     }
 
     // If is a file...
