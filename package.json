@@ -4,8 +4,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist",
+    "start:b": "bun run src/index.ts",
     "build": "tsc && tsc-alias",
     "dev": "nodemon src/index.ts",
+    "dev:b": "bun run --watch src/index.ts",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix"
   },
