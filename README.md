@@ -11,10 +11,10 @@ Este es un bot para Discord, escrito en TypeScript y desarrollado con [Node.js](
 ### Configuración:
 
 - Revisar las variables de entorno (`.env.example`)
-  - Las propiedades marcadas como `opcionales` tienen un valor por defecto en `./src/config/config.ts`
+  - Las propiedades marcadas como `opcionales` tienen un valor por defecto en `./src/config.ts`
 - [Discord.js](https://npmjs.com/package/discord.js) requiere [Node.js](https://nodejs.org) v16.9 o superior para funcionar.
-- Puede cambiar la Presencia de su bot en `./src/events/ready.ts`
-- Puede cambiar de comandos de servidor a comandos globales en `./src/handler/main.ts`. ([Ver más](https://discordjs.guide/creating-your-bot/command-deployment.html#guild-commands))
+- Puede cambiar la Presencia de su bot en `./src/events/init/ready.ts`
+- Puede cambiar de comandos de servidor a comandos globales en `./src/modules/builder/index.ts`. ([Ver más](https://discordjs.guide/creating-your-bot/command-deployment.html#guild-commands))
 
 ### Instalación, Compilación & Inicio:
 
@@ -52,13 +52,13 @@ npm start
 Para producción:
 
 ```bash
-bun run src/index.ts
+bun run start:b
 ```
 
 Para desarrollo:
 
 ```bash
-bun run --watch src/index.ts
+bun run dev:b
 ```
 
 > [!NOTE]
@@ -66,7 +66,7 @@ bun run --watch src/index.ts
 
 ## Características
 
-- Gestor de eventos (`Event Handler`).
+- Gestor de eventos con subcarpetas (`Event Handler`).
 - Gestor de comandos con subcarpetas (`Command Handler`).
 - Gestor de comandos de barra con subcarpetas (`Slash Command Handler`).
 - Eslint integrado.
