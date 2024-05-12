@@ -70,6 +70,7 @@ bun run dev:b
 - Gestor de comandos con subcarpetas (`Command Handler`).
 - Gestor de comandos de barra con subcarpetas (`Slash Command Handler`).
 - Eslint integrado.
+- Prettier integrado.
 
 ## Licencia
 
