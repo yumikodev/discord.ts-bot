@@ -1,9 +1,9 @@
-import ClientEvent from "../components/ClientEvent.js";
+import EventController from "@/modules/utils/event";
 
-export default new ClientEvent("interactionCreate", async (client, int) => {
+export default new EventController("interactionCreate", async (int) => {
   if (!int.isChatInputCommand()) return;
 
-  const command = client.slashs.get(int.commandName);
+  const command = int.client.slashs.get(int.commandName);
   try {
     if (!command) {
       await int.channel?.sendTyping();
@@ -13,7 +13,7 @@ export default new ClientEvent("interactionCreate", async (client, int) => {
       });
     }
     await int.channel?.sendTyping();
-    await command.run(client, int);
+    await command.run(int.client, int);
   } catch (err) {
     console.error(err);
 

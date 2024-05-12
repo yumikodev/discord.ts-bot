@@ -1,12 +1,11 @@
 {
   "name": "discord.ts-v14",
   "version": "1.0.0",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "node dist",
-    "build": "tsc",
-    "dev": "tsc-watch --onSuccess \"node dist\"",
+    "build": "tsc && tsc-alias",
+    "dev": "nodemon src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix"
   },
@@ -15,15 +14,19 @@
   "license": "MIT",
   "description": "",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "6.16.0",
-    "@typescript-eslint/parser": "6.16.0",
+    "@typescript-eslint/eslint-plugin": "7.8.0",
+    "@typescript-eslint/parser": "7.8.0",
     "bun-types": "latest",
-    "dotenv": "16.3.1",
-    "eslint": "8.56.0",
-    "tsc-watch": "6.0.4",
-    "typescript": "5.3.3"
+    "dotenv": "16.4.5",
+    "eslint": "9.2.0",
+    "nodemon": "3.1.0",
+    "ts-node": "10.9.2",
+    "tsc-alias": "1.8.9",
+    "tsconfig-paths": "4.2.0",
+    "typescript": "5.4.5"
   },
   "dependencies": {
-    "discord.js": "14.14.1"
-  }
+    "discord.js": "14.15.2"
+  },
+  "packageManager": "pnpm@9.1.0+sha512.67f5879916a9293e5cf059c23853d571beaf4f753c707f40cb22bed5fb1578c6aad3b6c4107ccb3ba0b35be003eb621a16471ac836c87beb53f9d54bb4612724"
 }

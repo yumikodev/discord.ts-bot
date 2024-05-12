@@ -1,24 +1,10 @@
-import { Client, Collection, GatewayIntentBits } from "discord.js";
-import config from "./config/config.js";
-import handler from "./handler/main.js";
-import { Bot } from "./types/Bot.js";
+import { Collection } from "discord.js";
+import { Command, SlashCommand } from "./modules/handler/types/collections";
+import "./app";
 
-// Client
-const client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
-  ],
-}) as Bot;
-
-// Collections
-client.slashs = new Collection();
-client.prefix = new Collection();
-
-// Handler
-handler(client);
-
-// Client Login
-client.login(config.token);
+declare module "discord.js" {
+  interface Client {
+    prefix: Collection<string, Command>;
+    slashs: Collection<string, SlashCommand>;
+  }
+}

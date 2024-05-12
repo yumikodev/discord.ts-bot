@@ -1,7 +1,7 @@
+import { SlashCommandController } from "@/modules/utils/commands";
 import { SlashCommandBuilder } from "discord.js";
-import Slash from "../../../components/SlashCommand.js";
 
-export default new Slash()
+export default new SlashCommandController()
   .setData(
     new SlashCommandBuilder()
       .setName("say")

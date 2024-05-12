@@ -1,6 +1,6 @@
-import Command from "../../../components/Command.js";
+import { PrefixCommandController } from "@/modules/utils/commands";
 
-export default new Command()
+export default new PrefixCommandController()
   .setData({
     name: "say",
     alias: ["echo"],
