@@ -13,7 +13,7 @@ export async function browseInFolders(path: string, ...handlers: Callback[]) {
     // If is a folder...
     if (archive.isDirectory()) {
       await browseInFolders(
-        join(archive.parentPath, archive.name),
+        join(path, archive.name),
         ...handlers
       );
     }
@@ -21,7 +21,7 @@ export async function browseInFolders(path: string, ...handlers: Callback[]) {
     // If is a file...
     if (archive.isFile()) {
       for (const cb of handlers) {
-        cb(archive.parentPath, archive.name);
+        cb(path, archive.name);
       }
     }
   }

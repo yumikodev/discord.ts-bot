@@ -13,7 +13,7 @@ export async function Handler(client: Client) {
       Handlers.slashCommands(client)
     );
 
-    // Slash Command
+    // Load Slash Command
     await builder(Handlers.commands);
 
     // Events Handler
