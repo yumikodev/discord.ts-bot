@@ -31,6 +31,6 @@ export namespace SCT {
 
   export type Run = (
     client: Client,
-    interaction: ChatInputCommandInteraction,
+    interaction: ChatInputCommandInteraction<"cached">,
   ) => unknown;
 }

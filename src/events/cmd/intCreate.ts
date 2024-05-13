@@ -2,17 +2,19 @@ import EventController from "@/modules/utils/event";
 
 export default new EventController("interactionCreate", async (int) => {
   if (!int.isChatInputCommand()) return;
+  if (!int.inCachedGuild()) return;
 
   const command = int.client.slashs.get(int.commandName);
+
   try {
-    if (!command) {
-      await int.channel?.sendTyping();
+    await int.channel?.sendTyping();
+
+    if (!command)
       return await int.reply({
         content: "An error has ocurred",
         ephemeral: true,
       });
-    }
-    await int.channel?.sendTyping();
+
     await command.run(int.client, int);
   } catch (err) {
     console.error(err);
