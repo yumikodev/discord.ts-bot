@@ -1,17 +1,11 @@
-import {
+import type {
   ChatInputCommandInteraction,
   Client,
   Message,
   SlashCommandBuilder,
+  SlashCommandSubcommandsOnlyBuilder,
+  SlashCommandOptionsOnlyBuilder,
 } from "discord.js";
-
-export type CommandType = "prefix" | "slash";
-
-export interface CommandInstance {
-  data;
-  run;
-  type: CommandType;
-}
 
 // PCT -> Prefix Command Types
 export namespace PCT {
@@ -33,7 +27,7 @@ export namespace SCT {
   export type Data =
     | SlashCommandBuilder
     | SlashCommandSubcommandsOnlyBuilder
-    | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">;
+    | SlashCommandOptionsOnlyBuilder;
 
   export type Run = (
     client: Client,

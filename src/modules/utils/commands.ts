@@ -1,9 +1,8 @@
-import { CommandInstance, CommandType, PCT, SCT } from "./types/commands.js";
+import { PCT, SCT } from "./types/commands.js";
 
 // Prefix Command constructor
-export class PrefixCommandController implements CommandInstance {
+export class PrefixCommandController {
   data: PCT.Data;
-  type: CommandType = "prefix";
   run: PCT.Run;
 
   setData(data: PCT.Data) {
@@ -18,9 +17,8 @@ export class PrefixCommandController implements CommandInstance {
 }
 
 // Slash Command constructor
-export class SlashCommandController implements CommandInstance {
+export class SlashCommandController {
   data: SCT.Data;
-  type: CommandType = "slash";
   run: SCT.Run;
 
   setData(data: SCT.Data) {
