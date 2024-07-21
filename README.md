@@ -1,24 +1,38 @@
-# discord.ts-bot
+# Discord.ts-bot
 
-Creado por [@yasuyumiko](https://yumikodev.vercel.app)
+## Created by [@yasuyumiko](https://yumikodev.vercel.app)
+#### Contributors: [@Ionut767](https://github.com/Ionut767)
 
-## Sobre
+## Sobre / About 
 
-Este es un bot para Discord, escrito en TypeScript y desarrollado con [Node.js](https://nodejs.org) y [Discord.js](https://npmjs.com/package/discord.js) en su version 14.
+Sp: Este es un bot para Discord, escrito en TypeScript y desarrollado con [Node.js](https://nodejs.org) y [Discord.js](https://npmjs.com/package/discord.js) en su versión 14.
 
-## Pasos a seguir
+En: This is a Discord bot, written in TypeScript and developed with [Node.js](https://nodejs.org) and [Discord.js](https://npmjs.com/package/discord.js) version 14.
 
-### Configuración:
 
-- Revisar las variables de entorno (`.env.example`)
-  - Las propiedades marcadas como `opcionales` tienen un valor por defecto en `./src/config.ts`
+
+## Pasos a seguir / Steps to Follow
+
+### Configuración / Setup:
+Sp:
+
+- Revisa las variables de entorno (`.env.example`)
+  - Las propiedades marcadas como `opcional` tienen un valor predeterminado en `./src/config.ts`
 - [Discord.js](https://npmjs.com/package/discord.js) requiere [Node.js](https://nodejs.org) v16.9 o superior para funcionar.
-- Puede cambiar la Presencia de su bot en `./src/events/init/ready.ts`
-- Puede cambiar de comandos de servidor a comandos globales en `./src/modules/builder/index.ts`. ([Ver más](https://discordjs.guide/creating-your-bot/command-deployment.html#guild-commands))
+- Puedes cambiar la presencia del bot en `./src/events/init/ready.ts`
+- Puedes cambiar de comandos de servidor a comandos globales en `./src/modules/builder/index.ts`. ([Aprende m s](https://discordjs.guide/creating-your-bot/command-deployment.html#comandos-globales))
 
-### Instalación, Compilación & Inicio:
+En:
 
-Para instalar los paquetes/dependecias.
+- Review the environment variables (`.env.example`)
+  - Properties marked as `optional` have a default value in `./src/config.ts`
+- [Discord.js](https://npmjs.com/package/discord.js) requires [Node.js](https://nodejs.org) v16.9 or higher to run.
+- You can change the bot's Presence in `./src/events/init/ready.ts`
+- You can switch from server commands to global commands in `./src/modules/builder/index.ts`. ([Learn more](https://discordjs.guide/creating-your-bot/command-deployment.html#guild-commands))
+
+### Instalación, Compilación & Inicio / Installation, Compilation & Start:
+Sp: Para instalar los paquetes/dependecias.<br/>
+En: To install the packages/dependencies.
 
 ```bash
 # Using npm
@@ -34,37 +48,54 @@ yarn i
 bun install
 ```
 
-Para compilar el código de TypeScript a JavaScript.
+Sp: Para compilar el código de TypeScript a JavaScript. <br/>
+En: To compile TypeScript code to JavaScript.
 
 ```bash
+# Using npm
 npm run build
-```
 
-Para iniciar el bot
+# Using pnpm
+pnpm run build
+
+# Using yarn
+yarn run build
+
+# Using Bun
+bun run build
+
+```
+Sp: Para iniciar el bot
+En:To start the bot
 
 ```bash
 npm start
 ```
 
 > [!TIP]
-> Si esta usando Bun, ejecute el código de la siguiente manera.
+> Sp: Si esta usando Bun, ejecute el código de la siguiente manera.
+> En: If you are using Bun, run the code as follows.
 
-Para producción:
+Para producción / For production:
 
 ```bash
 bun run start:b
 ```
 
-Para desarrollo:
+Para desarrollo / For development:
 
 ```bash
 bun run dev:b
 ```
 
 > [!NOTE]
-> Opcionalmente, puede reemplazar los scripts dentro de `package.json`.
+> Sp: Opcionalmente, puede reemplazar los scripts dentro de `package.json`.
+> En: Optionally, you can replace the scripts inside `package.json`.
 
-## Características
+---
+
+## Características / Features
+Sp:
 
 - Gestor de eventos con subcarpetas (`Event Handler`).
 - Gestor de comandos con subcarpetas (`Command Handler`).
@@ -72,16 +103,36 @@ bun run dev:b
 - Eslint integrado.
 - Prettier integrado.
 
-## Licencia
+En:
+- Event handler with subfolders (`Event Handler`).
+- Command handler with subfolders (`Command Handler`).
+- Slash command handler with subfolders (`Slash Command Handler`).
+- Integrated Eslint.
+- Integrated Prettier.
+
+---
+
+## License
 
 Este proyecto está bajo la [MIT License ❤️](https://github.com/Yumiko0828/discord.ts-bot/blob/main/LICENSE)
 
-## Enlaces
+This project is licensed under the [MIT License ❤️](https://github.com/Yumiko0828/discord.ts-bot/blob/main/LICENSE).
+
+---
+
+## Links
 
 - [Github](https://github.com/yumiko0828)
 - [Twitter](https://twitter.com/yumikodev)
 - [Instagram](https://www.instagram.com/yumiko.dev)
 - [npm](https://npmjs.com/~yumiko0828)
-- [Sitio web](https://yumikodev.vercel.app)
+- [Website](https://yumikodev.vercel.app)
 
-## Gracias por usar esto :D.
+---
+
+##  Gracias por usar esto / Thank you for using this :D
+
+---
+
+Sp: Espero que esta versión mejorada sea de tu agrado. ¡Déjame saber si necesitas algo más!<br/>
+En: I hope you like this improved version. Let me know if you need anything else!
