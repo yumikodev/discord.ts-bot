@@ -1,4 +1,5 @@
 import { PrefixCommandController } from "@/modules/utils/commands";
+import { ChannelType } from "discord.js";
 
 export default new PrefixCommandController()
   .setData({
@@ -7,6 +8,8 @@ export default new PrefixCommandController()
     description: "Envia un mensaje a travéz de mi.",
   })
   .Run(async (client, message, args) => {
+    if (message.channel.type !== ChannelType.GuildText) return;
+
     try {
       const txt = args.join(" ");
       await message.delete();
