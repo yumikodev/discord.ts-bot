@@ -1,22 +1,20 @@
 import { ChannelType } from "discord.js";
-import config from "@/config";
-import EventController from "@/modules/utils/event";
+import { PREFIX } from "@/config.js";
+import { EventController } from "@/modules/controllers/event.js";
 
 export default new EventController("messageCreate", async (message) => {
   if (message.channel.type === ChannelType.DM) return;
   if (message.author.bot) return;
 
-  const prefix = config.PREFIX;
+  if (!message.content.startsWith(PREFIX)) return;
 
-  if (!message.content.startsWith(prefix)) return;
-
-  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
   const command = args.shift()?.toLowerCase();
 
   const cmd = message.client.prefix.find(
     (c) =>
       c.data.name === command ||
-      (c.data.alias && c.data.alias.includes(`${command}`))
+      (c.data.alias && c.data.alias.includes(`${command}`)),
   );
 
   try {
@@ -28,7 +26,7 @@ export default new EventController("messageCreate", async (message) => {
     }
 
     await message.channel.sendTyping();
-    await cmd.run(message.client, message, args);
+    await cmd.run(message, args);
   } catch (err) {
     console.log(err);
     await message.reply({ content: err.message });

@@ -18,7 +18,7 @@ export async function browseInFolders(path: string, ...handlers: Callback[]) {
     // If is a file...
     if (archive.isFile()) {
       for (const cb of handlers) {
-        cb(path, archive.name);
+        await cb(path, archive.name);
       }
     }
   }

@@ -1,17 +1,20 @@
-import { SlashCommandController } from "@/modules/utils/commands";
+import {
+  CommandController,
+  CommandType,
+} from "@/modules/controllers/commands.js";
 import { SlashCommandBuilder } from "discord.js";
 
-export default new SlashCommandController()
+export default new CommandController(CommandType.Slash)
   .setData(
     new SlashCommandBuilder()
       .setName("ping")
       .setDescription("Send a ping request."),
   )
-  .Run(async (client, int) => {
+  .setRun(async (int) => {
     try {
       await int.reply({ content: "Pong!" });
       await int.followUp({
-        content: `Latency: ${client.ws.ping}ms\nBot Latency: ${
+        content: `Latency: ${int.client.ws.ping}ms\nBot Latency: ${
           Date.now() - int.createdTimestamp
         }ms`,
       });

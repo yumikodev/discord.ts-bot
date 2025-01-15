@@ -1,7 +1,10 @@
-import { SlashCommandController } from "@/modules/utils/commands";
+import {
+  CommandController,
+  CommandType,
+} from "@/modules/controllers/commands.js";
 import { SlashCommandBuilder } from "discord.js";
 
-export default new SlashCommandController()
+export default new CommandController(CommandType.Slash)
   .setData(
     new SlashCommandBuilder()
       .setName("say")
@@ -13,7 +16,7 @@ export default new SlashCommandController()
           .setRequired(true),
       ),
   )
-  .Run(async (client, int) => {
+  .setRun(async (int) => {
     try {
       const txt = int.options.get("content");
 

@@ -1,14 +1,14 @@
 import { ActivityType } from "discord.js";
-import { setPresence } from "@/modules/presence";
-import EventController from "@/modules/utils/event";
-import config from "@/config";
+import { EventController } from "@/modules/controllers/event.js";
+import { setPresence } from "@/modules/utils/presence.js";
+import { VERSION, PREFIX } from "@/config.js";
 
-export default new EventController("ready", async (client) => {
-  console.log(`${client.user?.username} en linea!`);
+export default new EventController("ready", (client) => {
+  console.log(`${client.user.username} en linea!`);
 
-  new setPresence(client, [
+  setPresence(client, [
     {
-      content: `${config.PREFIX}help - v${config.VERSION}`,
+      content: `${PREFIX}help - v${VERSION}`,
       type: ActivityType.Playing,
       status: "idle",
     },

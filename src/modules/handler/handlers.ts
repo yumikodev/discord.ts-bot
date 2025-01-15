@@ -1,15 +1,14 @@
 import { relative, join } from "node:path";
 import { Client } from "discord.js";
-import { Callback } from "./browse-in-folders";
-import EventController from "../utils/event";
-import {
-  PrefixCommandController,
-  SlashCommandController,
-} from "../utils/commands";
+import { Callback } from "./browse-in-folders.js";
+import { EventController } from "../controllers/event.js";
+import { isPrefix, isSlash } from "../controllers/commands.js";
 
 interface ESModule {
   default: unknown;
 }
+
+const __dirname = import.meta.dirname;
 
 export class Handlers {
   static commands: unknown[] = [];
@@ -20,7 +19,7 @@ export class Handlers {
       const rPath = relative(__dirname, path); // Relative path
       const command: ESModule = await import(join(rPath, fileName));
 
-      if (command.default instanceof PrefixCommandController) {
+      if (isPrefix(command.default)) {
         client.prefix.set(command.default.data.name, command.default);
       }
     };
@@ -32,7 +31,7 @@ export class Handlers {
       const rPath = relative(__dirname, path); // Relative path
       const command: ESModule = await import(join(rPath, fileName));
 
-      if (command.default instanceof SlashCommandController) {
+      if (isSlash(command.default)) {
         client.slashs.set(command.default.data.name, command.default);
         this.commands.push(command.default.data.toJSON());
       }

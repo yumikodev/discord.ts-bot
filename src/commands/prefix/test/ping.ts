@@ -1,14 +1,19 @@
-import { PrefixCommandController } from "@/modules/utils/commands";
+import {
+  CommandController,
+  CommandType,
+} from "@/modules/controllers/commands.js";
 import { ChannelType } from "discord.js";
 
-export default new PrefixCommandController()
+export default new CommandController(CommandType.Prefix)
   .setData({
     name: "ping",
     alias: [],
     description: "Send a ping request",
   })
-  .Run(async (client, message) => {
+  .setRun(async (message) => {
     if (message.channel.type !== ChannelType.GuildText) return;
+
+    const { client } = message;
 
     try {
       const msg = await message.reply({ content: "Pong!" });

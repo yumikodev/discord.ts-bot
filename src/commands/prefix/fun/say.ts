@@ -1,13 +1,16 @@
-import { PrefixCommandController } from "@/modules/utils/commands";
+import {
+  CommandController,
+  CommandType,
+} from "@/modules/controllers/commands.js";
 import { ChannelType } from "discord.js";
 
-export default new PrefixCommandController()
+export default new CommandController(CommandType.Prefix)
   .setData({
     name: "say",
     alias: ["echo"],
     description: "Envia un mensaje a travéz de mi.",
   })
-  .Run(async (client, message, args) => {
+  .setRun(async (message, args) => {
     if (message.channel.type !== ChannelType.GuildText) return;
 
     try {

@@ -1,6 +1,6 @@
 import { Client, Collection, GatewayIntentBits } from "discord.js";
-import config from "./config";
-import { Handler } from "./modules/handler";
+import { TOKEN } from "./config.js";
+import { Handler } from "./modules/handler/index.js";
 
 // Client
 const client = new Client({
@@ -17,7 +17,7 @@ client.slashs = new Collection();
 client.prefix = new Collection();
 
 // Handler
-Handler(client);
+await Handler(client);
 
 // Client Login
-client.login(config.TOKEN);
+await client.login(TOKEN);

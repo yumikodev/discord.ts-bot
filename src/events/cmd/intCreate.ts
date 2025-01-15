@@ -1,4 +1,4 @@
-import EventController from "@/modules/utils/event";
+import { EventController } from "@/modules/controllers/event.js";
 
 export default new EventController("interactionCreate", async (int) => {
   if (!int.isChatInputCommand()) return;
@@ -15,7 +15,7 @@ export default new EventController("interactionCreate", async (int) => {
         ephemeral: true,
       });
 
-    await command.run(int.client, int);
+    await command.run(int);
   } catch (err) {
     console.error(err);
 
