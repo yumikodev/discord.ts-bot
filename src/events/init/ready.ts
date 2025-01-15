@@ -2,9 +2,11 @@ import { ActivityType } from "discord.js";
 import { EventController } from "@/modules/controllers/event.js";
 import { setPresence } from "@/modules/utils/presence.js";
 import { VERSION, PREFIX } from "@/config.js";
+import { Logger } from "@/modules/utils/logger.js";
 
 export default new EventController("ready", (client) => {
-  console.log(`${client.user.username} en linea!`);
+  const logger = new Logger("Ready");
+  logger.log(`${client.user.username} ready!`);
 
   setPresence(client, [
     {

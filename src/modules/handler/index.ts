@@ -12,17 +12,17 @@ export async function Handler(client: Client) {
     await browseInFolders(
       join(__dirname, "../../commands"),
       Handlers.prefixCommands(client),
-      Handlers.slashCommands(client)
+      Handlers.slashCommands(client),
     );
-
-    // Load Slash Command
-    await builder(Handlers.commands);
 
     // Events Handler
     await browseInFolders(
       join(__dirname, "../../events"),
-      Handlers.events(client)
+      Handlers.events(client),
     );
+
+    // Load Slash Command
+    await builder(Handlers.commands);
   } catch (err) {
     console.error(err);
   }
