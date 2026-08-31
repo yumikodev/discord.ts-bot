@@ -1,17 +1,17 @@
 // SCT -> Slashs Command Types
 
-import {
-  ChatInputCommandInteraction,
-  SlashCommandBuilder,
-  SlashCommandOptionsOnlyBuilder,
-  SlashCommandSubcommandsOnlyBuilder,
-} from "discord.js";
+import type {
+	ChatInputCommandInteraction,
+	SlashCommandBuilder,
+	SlashCommandOptionsOnlyBuilder,
+	SlashCommandSubcommandsOnlyBuilder,
+} from 'discord.js';
 
 export type Data =
-  | SlashCommandBuilder
-  | SlashCommandSubcommandsOnlyBuilder
-  | SlashCommandOptionsOnlyBuilder;
+	| SlashCommandBuilder
+	| SlashCommandSubcommandsOnlyBuilder
+	| SlashCommandOptionsOnlyBuilder;
 
 export type Run = (
-  interaction: ChatInputCommandInteraction<"cached">,
+	interaction: ChatInputCommandInteraction<'cached'>,
 ) => unknown;

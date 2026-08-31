@@ -1,17 +1,20 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "NodeNext",
-    "rootDir": "./src",
-    "outDir": "./dist",
-    "baseUrl": "./src",
-    "paths": {
-      "@/*": ["./*"]
-    },
-    "strict": true,
-    "useUnknownInCatchVariables": false,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "strictPropertyInitialization": false
-  }
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "NodeNext",
+		"lib": ["ESNext"],
+		"types": ["node", "bun"],
+		"rootDir": "./src",
+		"outDir": "./dist",
+		"paths": {
+			"@/*": ["./src/*"]
+		},
+		"strict": true,
+		"useUnknownInCatchVariables": false,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"noUnusedLocals": true,
+		"rewriteRelativeImportExtensions": true,
+		"strictPropertyInitialization": false
+	}
 }

@@ -1,34 +1,33 @@
-import { ChannelType } from "discord.js";
-import { PREFIX } from "@/config.js";
-import { EventController } from "@/modules/controllers/event.js";
+import { ChannelType } from 'discord.js';
+import { PREFIX } from '@/config.js';
+import { EventController } from '@/modules/controllers/event.js';
+import { Logger } from '@/modules/utils/logger.js';
 
-export default new EventController("messageCreate", async (message) => {
-  if (message.channel.type === ChannelType.DM) return;
-  if (message.author.bot) return;
+const logger = new Logger('MessageCreate');
 
-  if (!message.content.startsWith(PREFIX)) return;
+export default new EventController('messageCreate', async (message) => {
+	if (message.channel.type === ChannelType.DM) return;
+	if (message.author.bot) return;
 
-  const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
-  const command = args.shift()?.toLowerCase();
+	if (!message.content.startsWith(PREFIX)) return;
 
-  const cmd = message.client.prefix.find(
-    (c) =>
-      c.data.name === command ||
-      (c.data.alias && c.data.alias.includes(`${command}`)),
-  );
+	const args = message.content.slice(PREFIX.length).trim().split(/ +/g);
+	const command = args.shift()?.toLowerCase();
 
-  try {
-    if (!cmd) {
-      await message.channel.sendTyping();
-      return await message.reply({
-        content: `Command \`${command}\` does not exist`,
-      });
-    }
+	const cmd = message.client.prefix.find(
+		(c) => c.data.name === command || c.data.alias.includes(`${command}`),
+	);
 
-    await message.channel.sendTyping();
-    await cmd.run(message, args);
-  } catch (err) {
-    console.log(err);
-    await message.reply({ content: err.message });
-  }
+	try {
+		if (!cmd) {
+			return await message.reply({
+				content: `Command \`${command}\` does not exist`,
+			});
+		}
+
+		await cmd.run(message, args);
+	} catch (err) {
+		logger.log(err);
+		await message.reply({ content: err.message });
+	}
 });

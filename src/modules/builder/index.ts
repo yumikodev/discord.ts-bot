@@ -1,20 +1,26 @@
-import { CLIENT_ID, GUILD_ID, TOKEN } from "@/config.js";
-import { REST, Routes } from "discord.js";
-import { Logger } from "../utils/logger.js";
+import { REST, Routes } from 'discord.js';
+import { CLIENT_ID, GUILD_ID, TOKEN } from '@/config.js';
+import { Logger } from '../utils/logger.js';
 
-export async function builder(commands: unknown[]) {
-  const logger = new Logger("Builder");
-  const rest = new REST({ version: "10" }).setToken(TOKEN);
+const logger = new Logger('Builder');
 
-  logger.log("Started refreshing application (/) commands.");
+export async function builder(commands: unknown[]): Promise<void> {
+	const rest = new REST({ version: '10' }).setToken(TOKEN);
 
-  await rest.put(
-    Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), // Slash Commands en un servidor
-    // Routes.applicationCommands(CLIENT_ID), // Slash Commands Globales
-    {
-      body: commands,
-    },
-  );
+	logger.log('Started refreshing application (/) commands.');
 
-  logger.log("Successfully reloaded application (/) commands.");
+	await rest
+		.put(
+			Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), // Slash Commands en un servidor
+			// Routes.applicationCommands(CLIENT_ID), // Slash Commands Globales
+			{
+				body: commands,
+			},
+		)
+		.catch((e) => {
+			logger.error(e);
+			throw e;
+		});
+
+	logger.log('Successfully reloaded application (/) commands.');
 }

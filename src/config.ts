@@ -1,27 +1,32 @@
-import Joi from "joi";
-import "dotenv/config";
+import { type ZodError, z } from 'zod';
+import { Logger } from './modules/utils/logger.js';
 
-interface Env {
-  TOKEN: string;
-  CLIENT_ID: string;
-  GUILD_ID: string;
-  PREFIX: string;
-  VERSION: string;
+if (process.env.NODE_ENV !== "production") {
+	await import('dotenv/config');
 }
 
-const schema = Joi.object<Env>({
-  TOKEN: Joi.string().required(),
-  CLIENT_ID: Joi.string().required(),
-  GUILD_ID: Joi.string().required(),
-  PREFIX: Joi.string().default("!"),
-  VERSION: Joi.string().default("1.0.0"),
-}).unknown(true);
+const logger = new Logger('Config');
 
-const { CLIENT_ID, GUILD_ID, PREFIX, TOKEN, VERSION } = await schema
-  .validateAsync(process.env)
-  .catch((e) => {
-    throw new Error(e.message);
-  });
+const schema = z.object({
+	TOKEN: z.string().nonempty(),
+	CLIENT_ID: z.string().nonempty(),
+	GUILD_ID: z.string().nonempty(),
+	PREFIX: z.string().default('.'),
+	VERSION: z.string().default('0.1'),
+});
+
+const compiledSchema = z.compile(schema);
+
+const { CLIENT_ID, GUILD_ID, PREFIX, TOKEN, VERSION } = await compiledSchema
+	.parseAsync(process.env)
+	.catch((e: ZodError) => {
+		logger.error(JSON.parse(e.message)[0].message || e.message);
+		throw e;
+	})
+	.then((r) => {
+		logger.log('Environment variables has been loaded successfully');
+		return r;
+	});
 
 // Env variables
 export { CLIENT_ID, GUILD_ID, PREFIX, TOKEN, VERSION };
