@@ -171,6 +171,7 @@ bun run dev:b
 
 > [!TIP]
 > Sp: Si usas Bun, también puedes ejecutar el proyecto con `bun run start:b` para producción o `bun run dev:b` para desarrollo.
+>
 > En: If you use Bun, you can also run the project with `bun run start:b` for production or `bun run dev:b` for development.
 
 ---
