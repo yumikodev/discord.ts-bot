@@ -1,7 +1,7 @@
 import { type ZodError, z } from 'zod';
 import { Logger } from './modules/utils/logger.js';
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
 	await import('dotenv/config');
 }
 

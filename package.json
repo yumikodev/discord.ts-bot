@@ -23,14 +23,13 @@
 		"zod": "4.5.4"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.11",
-		"@types/bun": "1.4.0",
-		"@types/node": "26.4.0",
+		"@biomejs/biome": "2.5.12",
+		"@types/bun": "1.4.1",
+		"@types/node": "26.4.1",
 		"dotenv": "17.4.2",
-		"prettier": "3.9.6",
-		"tsc-alias": "1.9.2",
+		"tsc-alias": "1.9.4",
 		"tsx": "4.23.13",
 		"typescript": "7.0.2"
 	},
-	"packageManager": "pnpm@11.24.0"
+	"packageManager": "pnpm@12.3.4"
 }

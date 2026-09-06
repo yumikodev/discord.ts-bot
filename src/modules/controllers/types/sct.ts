@@ -12,6 +12,6 @@ export type Data =
 	| SlashCommandSubcommandsOnlyBuilder
 	| SlashCommandOptionsOnlyBuilder;
 
-export type Run = (
+export type Run<T = unknown> = (
 	interaction: ChatInputCommandInteraction<'cached'>,
-) => unknown;
+) => T | Promise<T>;

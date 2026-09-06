@@ -1,7 +1,3 @@
 node_modules/
 dist/
 .env
-package-lock.json
-pnpm-lock.yaml
-yarn-lock.yaml
-bun.lockb
