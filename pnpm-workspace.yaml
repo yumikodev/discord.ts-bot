@@ -1,2 +1,15 @@
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@biomejs/biome@2.6.9'
+  - '@biomejs/cli-android-arm64@2.6.9'
+  - '@biomejs/cli-android-x64@2.6.9'
+  - '@biomejs/cli-darwin-arm64@2.6.9'
+  - '@biomejs/cli-darwin-x64@2.6.9'
+  - '@biomejs/cli-linux-arm64-musl@2.6.9'
+  - '@biomejs/cli-linux-arm64@2.6.9'
+  - '@biomejs/cli-linux-x64-musl@2.6.9'
+  - '@biomejs/cli-linux-x64@2.6.9'
+  - '@biomejs/cli-win32-arm64@2.6.9'
+  - '@biomejs/cli-win32-x64@2.6.9'
+  - '@types/node@26.6.7'

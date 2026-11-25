@@ -18,18 +18,18 @@
 	"license": "MIT",
 	"description": "",
 	"dependencies": {
-		"chalk": "6.0.0",
-		"discord.js": "14.27.0",
-		"zod": "4.5.4"
+		"chalk": "6.0.1",
+		"discord.js": "14.28.1",
+		"zod": "4.6.7"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.5.12",
-		"@types/bun": "1.4.1",
-		"@types/node": "26.4.1",
-		"dotenv": "17.4.2",
-		"tsc-alias": "1.9.4",
-		"tsx": "4.23.13",
+		"@biomejs/biome": "2.6.9",
+		"@types/bun": "1.4.5",
+		"@types/node": "26.6.7",
+		"dotenv": "18.0.10",
+		"tsc-alias": "1.9.10",
+		"tsx": "4.23.15",
 		"typescript": "7.0.2"
 	},
-	"packageManager": "pnpm@12.3.4"
+	"packageManager": "pnpm@12.23.0"
 }
